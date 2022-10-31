@@ -1,0 +1,15 @@
+[Unit]
+Description=meeps.py daily run
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/pietro/Projects/meeps.py/meeps.py # File location
+Environment="USER=MY_EMAIL@gmail.com"                              # Your username
+Environment="PASSWORD=MY_PASSWORD"                                 # Your password
+
+[Timer]
+OnCalendar=* 06:00:00 # Run every weekday at 06:00AM
+
+[Install]
+WantedBy=multi-user.target
